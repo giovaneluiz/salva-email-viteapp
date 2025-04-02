@@ -60,7 +60,7 @@ const DoctorForm = () => {
     setFeedback({ type: null, message: '' });
 
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL, {
+      const response = await fetch('https://salva-email-huand5gad9a3a8b2.brazilsouth-01.azurewebsites.net/doctors', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
