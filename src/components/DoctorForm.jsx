@@ -23,6 +23,7 @@ const DoctorForm = () => {
   };
 
   const translateServerMessage = (response, statusCode) => {
+    console.log(response)
     // Verifica se a resposta foi bem sucedida baseado no status HTTP
     if (statusCode >= 200 && statusCode < 300) {
       return {
@@ -32,14 +33,14 @@ const DoctorForm = () => {
     }
 
     // Tratamento de erros específicos
-    if (response.message?.toLowerCase().includes('already exists')) {
+    if (response.error?.toLowerCase().includes('already exists')) {
       return {
         type: 'error',
         message: 'Este e-mail já está cadastrado em nossa base de dados. Por favor, utilize outro e-mail.'
       };
     }
 
-    if (response.message?.toLowerCase().includes('invalid email')) {
+    if (response.error?.toLowerCase().includes('invalid email')) {
       return {
         type: 'error',
         message: 'O e-mail informado não é válido. Por favor, verifique e tente novamente.'
